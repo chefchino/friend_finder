@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <title>FriendFinder</title>
 
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -32,7 +31,7 @@
                 <h3>Question 1</h3>
                 <p>Your mind is always buzzing with unexplored ideas and plans.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ1" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -44,7 +43,7 @@
                 <h3>Question 2</h3>
                 <p>Generally speaking, you rely more on your experience than your imagination.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ2" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -56,7 +55,7 @@
                 <h3>Question 3</h3>
                 <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ3" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -68,7 +67,7 @@
                 <h3>Question 4</h3>
                 <p>You rarely do something just out of sheer curiosity.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ4" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -80,7 +79,7 @@
                 <h3>Question 5</h3>
                 <p>People can rarely upset you.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ5" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -92,7 +91,7 @@
                 <h3>Question 6</h3>
                 <p>It is often difficult for you to relate to other people’s feelings.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ6" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -104,7 +103,7 @@
                 <h3>Question 7</h3>
                 <p>In a discussion, truth should be more important than people’s sensitivities.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ7" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -116,7 +115,7 @@
                 <h3>Question 8</h3>
                 <p>You rarely get carried away by fantasies and ideas.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ8" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -129,7 +128,7 @@
                 <p>You think that everyone’s views should be respected regardless of whether they are supported by facts
                     or not.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ9" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -141,7 +140,7 @@
                 <h3>Question 10</h3>
                 <p>You feel more energetic after spending time with a group of people.</p>
                 <div class="form-group col-md-2">
-                    <select id="inputQ" class="form-control">
+                    <select id="inputQ10" class="form-control">
                         <option>Choose...</option>
                         <option>1</option>
                         <option>2</option>
@@ -150,7 +149,7 @@
                         <option>5</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
             </form>
             <footer class="footer">
                     <div class="container">
@@ -158,17 +157,50 @@
                     </div>
                   </footer>
 
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
+
+<script type= "text/javascript">
+$("#submit").on("click", function(event) {
+    event.preventDefault();
+    var newFriend = {
+        friendName : $("#nameinput").val().trim(),
+        linkToPic : $("#linkImg").val().trim(),
+        Q1 : $("#inputQ1").val(),
+        Q2 : $("#inputQ2").val(),
+        Q3 : $("#inputQ3").val(),
+        Q4 : $("#inputQ4").val(),
+        Q5 : $("#inputQ5").val(),
+        Q6 : $("#inputQ6").val(),
+        Q7 : $("#inputQ7").val(),
+        Q8 : $("#inputQ8").val(),
+        Q9 : $("#inputQ9").val(),
+        Q10 : $("#inputQ10").val()
+
+    };
+    console.log(newFriend);
+
+    $.post("/api/friends", newFriend, 
+    function(data) {
+        if (data) {
+            console.log("You have a new friend!!!");
+        }else {
+            console.log("No one likes you.")
+        }
+        $("#nameinput").val("");
+        $("#linkImg").val("");
+        $("#inputQ1").val("");
+        $("#inputQ2").val("");
+        $("#inputQ3").val("");
+        $("#inputQ4").val("");
+        $("#inputQ5").val("");
+        $("#inputQ6").val("");
+        $("#inputQ7").val("");
+        $("#inputQ8").val("");
+        $("#inputQ9").val("");
+        $("#inputQ10").val("");
+    });
+});
+
+</script>
