@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 
 <body>
@@ -153,19 +153,19 @@
             </form>
             <footer class="footer">
                     <div class="container">
-                      <p><a href="../data/friends.js">Friend API</a> | <a href="https://www.Github.com">GitHub Repo</a> </p>
+                      <p><a href="/api/friends">Friend API</a> | <a href="https://www.Github.com">GitHub Repo</a> </p>
                     </div>
                   </footer>
 
 </body>
 
 </html>
-
+<script src="https://code.jquery.com/jquery.js"></script>
 <script type= "text/javascript">
 $("#submit").on("click", function(event) {
     event.preventDefault();
     var newFriend = {
-        friendName : $("#nameinput").val().trim(),
+        friendName : $("#nameInput").val().trim(),
         linkToPic : $("#linkImg").val().trim(),
         Q1 : $("#inputQ1").val(),
         Q2 : $("#inputQ2").val(),
@@ -188,7 +188,7 @@ $("#submit").on("click", function(event) {
         }else {
             console.log("No one likes you.")
         }
-        $("#nameinput").val("");
+        $("#nameInput").val("");
         $("#linkImg").val("");
         $("#inputQ1").val("");
         $("#inputQ2").val("");
