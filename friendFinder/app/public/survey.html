@@ -167,20 +167,20 @@ $("#submit").on("click", function(event) {
     var newFriend = {
         friendName : $("#nameInput").val().trim(),
         linkToPic : $("#linkImg").val().trim(),
-        Q1 : $("#inputQ1").val(),
-        Q2 : $("#inputQ2").val(),
-        Q3 : $("#inputQ3").val(),
-        Q4 : $("#inputQ4").val(),
-        Q5 : $("#inputQ5").val(),
-        Q6 : $("#inputQ6").val(),
-        Q7 : $("#inputQ7").val(),
-        Q8 : $("#inputQ8").val(),
-        Q9 : $("#inputQ9").val(),
-        Q10 : $("#inputQ10").val()
-
+        scores:[
+            $("#inputQ1").val(),
+             $("#inputQ2").val(),
+             $("#inputQ3").val(),
+             $("#inputQ4").val(),
+             $("#inputQ5").val(),
+             $("#inputQ6").val(),
+             $("#inputQ7").val(),
+             $("#inputQ8").val(),
+             $("#inputQ9").val(),
+             $("#inputQ10").val()
+    ]
     };
     console.log(newFriend);
-
     $.post("/api/friends", newFriend, 
     function(data) {
         if (data) {

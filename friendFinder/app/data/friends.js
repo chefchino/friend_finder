@@ -2,17 +2,67 @@ var friendArray = [
     {
         friendName: "Cip",
         linkToPic: "../images/otter.jpg",
-        Q1: 3,
-        Q2: 3,
-        Q3: 3,
-        Q4: 3,
-        Q5: 3,
-        Q6: 3,
-        Q7: 3,
-        Q8: 3,
-        Q9: 3,
-        Q10: 3
+        scores: [
+             4,
+             2,
+             1,
+             5,
+             2,
+             4,
+             3,
+             4,
+             5,
+             4
+        ]
 
+    },
+    {
+        friendName: "Dan",
+        linkToPic: "../images/otter.jpg",
+        scores: [
+            2,
+            4,
+            5,
+            1,
+            4,
+            2,
+            5,
+            4,
+            1,
+            2
+        ]
+    },
+    {
+        friendName: "Whitney",
+        linkToPic: "../images/otter.jpg",
+        scores: [
+            5,
+            5,
+            4,
+            5,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5
+        ]
+    },
+    {
+        friendName: "Ana",
+        linkToPic: "../images/otter.jpg",
+        scores: [
+            5,
+            3,
+            3,
+            3,
+            2,
+            3,
+            4,
+            3,
+            1,
+            3
+        ]
     }
 ];
 
