@@ -191,8 +191,6 @@
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    $(".answer").hide()
-
     $("#submit").on("click", function (event) {
         event.preventDefault();
         var newFriend = {
@@ -211,10 +209,8 @@
                 $("#inputQ10").val()
             ]
         };
-        console.log(newFriend);
         $.post("/api/friends", newFriend,
             function (data) {
-                console.log("name " + data.friendName)
                 $(".friName").text(data.friendName)
                 $(".friends").append($('<img>').attr('src', data.linkToPic));
                 $("#match").modal("toggle");
