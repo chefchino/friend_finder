@@ -1,5 +1,5 @@
 var friendArray = require("../data/friends");
-//console.log("API", friendArray)
+
 module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         console.log("i'm in")

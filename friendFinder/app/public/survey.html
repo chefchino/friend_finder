@@ -154,13 +154,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
                 </form>
-
-                <!-- <div class="answer">
-                    <h4 class="head">You Matched Best With:</h4>
-                    <h3 class="friName">hello</h3>
-                    <div class="friends">
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -193,15 +186,13 @@
                     </div>
                 </footer>
 
-                
-                <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
                 <script src="https://code.jquery.com/jquery.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<!-- <script src="../routing/apiRouting.js"></script> -->
+
 <script type="text/javascript">
     $(".answer").hide()
-    // var buddy = require("../routing/apiRouting.js");
+
     $("#submit").on("click", function (event) {
         event.preventDefault();
         var newFriend = {
@@ -221,22 +212,12 @@
             ]
         };
         console.log(newFriend);
-        // $(".answer").text(newFriend.linkToPic);
         $.post("/api/friends", newFriend,
             function (data) {
-                // $('.answer').show()
                 console.log("name " + data.friendName)
                 $(".friName").text(data.friendName)
                 $(".friends").append($('<img>').attr('src', data.linkToPic));
                 $("#match").modal("toggle");
-                // if (data) {
-                    // $(".friName1").html(friendArray[i].friendName);
-                    // $(".friends1").html(friendArray[i].linkToPic);
-                    
-                //     console.log("You have a new friend!!!");
-                // } else {
-                //     console.log("No one likes you.")
-                // }
                 $("#nameInput").val("");
                 $("#linkImg").val("");
                 $("#inputQ1").val("");
@@ -250,14 +231,7 @@
                 $("#inputQ9").val("");
                 $("#inputQ10").val("");
             });
-            
-            // $(".friName").text(friendArray[i].friendName);
-        
     });
-    // $("#close").on("click", function(event) {
-    //     event.preventDefault();
-    //     $(".modal").hide();
-    // })
 
 </script>
 </body>

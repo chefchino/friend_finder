@@ -8,11 +8,7 @@ var PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static("public"))
-// app.use(express.static("routing"))
 app.use(express.static(path.join(__dirname, 'app/public')));
-//this allows service of static files (look out for MIME type error)
-
 require("./app/routing/apiRouting")(app);
 require("./app/routing/htmlRouting")(app);
 
