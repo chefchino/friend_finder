@@ -23,7 +23,7 @@ module.exports = function(app) {
         var buddy = friendArray[match];
         console.log(buddy);
         friendArray.push(newFriend);
-        res.send("we hit the route")
+        res.json(buddy)
     });
     app.get("/api/friends", function(req, res) {
         res.json(friendArray);

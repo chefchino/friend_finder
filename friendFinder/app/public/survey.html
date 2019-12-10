@@ -153,15 +153,35 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
                 </form>
+
                 <div class="answer">
-                    <h3>You Matched Best With:</h3>
-                    <h3 class="friName"></h3>
+                    <h4 class="head">You Matched Best With:</h4>
+                    <h3 class="friName">hello</h3>
                     <div class="friends">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">It's a Match!!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p> <span class="friName"></span> is your new besty
+            </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>ftr
+            </div>
+          </div>
+        </div>
+      </div>
                 <footer class="footer">
                     <div class="container">
                         <p><a href="/api/friends">Friend API</a> | <a href="https://www.Github.com">GitHub Repo</a> </p>
@@ -172,7 +192,9 @@
 
 </html>
 <script src="https://code.jquery.com/jquery.js"></script>
+<!-- <script src="../routing/apiRouting.js"></script> -->
 <script type="text/javascript">
+    $(".answer").hide()
     // var buddy = require("../routing/apiRouting.js");
     $("#submit").on("click", function (event) {
         event.preventDefault();
@@ -193,18 +215,21 @@
             ]
         };
         console.log(newFriend);
-        $(".friName").text(friendArray[i].friendName);
         // $(".answer").text(newFriend.linkToPic);
         $.post("/api/friends", newFriend,
             function (data) {
-                if (data) {
+                $('.answer').show()
+                console.log("name " + data.friendName)
+                $(".friName").text(data.friendName)
+                $(".friends").append($('<img>').attr('src', data.linkToPic));
+                // if (data) {
                     // $(".friName1").html(friendArray[i].friendName);
                     // $(".friends1").html(friendArray[i].linkToPic);
-
-                    console.log("You have a new friend!!!");
-                } else {
-                    console.log("No one likes you.")
-                }
+                    
+                //     console.log("You have a new friend!!!");
+                // } else {
+                //     console.log("No one likes you.")
+                // }
                 $("#nameInput").val("");
                 $("#linkImg").val("");
                 $("#inputQ1").val("");
@@ -218,6 +243,8 @@
                 $("#inputQ9").val("");
                 $("#inputQ10").val("");
             });
+            
+            // $(".friName").text(friendArray[i].friendName);
         
     });
 

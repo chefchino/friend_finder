@@ -1,7 +1,7 @@
 var friendArray = [
     {
         friendName: "Cip",
-        linkToPic: "../images/otter.jpg",
+        linkToPic: "images/otter.jpg",
         scores: [
              4,
              2,
@@ -18,7 +18,7 @@ var friendArray = [
     },
     {
         friendName: "Dan",
-        linkToPic: "../images/otter.jpg",
+        linkToPic: "images/otter.jpg",
         scores: [
             2,
             4,
@@ -34,7 +34,7 @@ var friendArray = [
     },
     {
         friendName: "Whitney",
-        linkToPic: "../images/otter.jpg",
+        linkToPic: "images/otter.jpg",
         scores: [
             5,
             5,
@@ -50,7 +50,7 @@ var friendArray = [
     },
     {
         friendName: "Ana",
-        linkToPic: "../images/otter.jpg",
+        linkToPic: "images/otter.jpg",
         scores: [
             5,
             3,
