@@ -1,0 +1,27 @@
+.form-group {
+    background-color: blue;
+}
+
+.answer {
+    background-color: red;
+    position: absolute;
+    width: 600px;
+    height: 500px;
+};
+
+.friends {
+    background-color: blue;
+    position: absolute;
+    width: 400px;
+    height:300px;
+};
+
+.firName {
+    background-color: green;
+    position: absolute;
+
+
+};
+h3 {
+    font-size: 48px;
+}
