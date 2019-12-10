@@ -152,6 +152,7 @@
                 <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
             </form>
             <div class = "answer">
+                <h3>You Match:</h3>
                 <div class = "friends">
                     <h2 class= "friName"></h2>
                 </div>
@@ -189,6 +190,11 @@ $("#submit").on("click", function(event) {
     $.post("/api/friends", newFriend, 
     function(data) {
         if (data) {
+            $(".friName").text(data.friendName);
+            $(".friends").text(data.linkToPic);
+            // $(".friName1").html(friendArray[i].friendName);
+            // $(".friends1").html(friendArray[i].linkToPic);
+
             console.log("You have a new friend!!!");
         }else {
             console.log("No one likes you.")
