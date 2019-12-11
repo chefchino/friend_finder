@@ -1,1 +1,1 @@
-# friend_finder
+This is an App that checks compadability between two people based off of a quick survey.
